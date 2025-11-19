@@ -1,13 +1,15 @@
 const board = document.querySelector(".board");
 const gameInfoDisplay = document.querySelector(".info");
 const startButton = document.getElementById("startBtn");
+const playerOneInput = document.getElementById("playerOne");
+const playerTwoInput = document.getElementById("playerTwo");
 const gridArray = ["", "", "", "", "", "", "", "", ""];
 
 startButton.addEventListener("click", handleClickStart);
 
 function Game() {
-  const playerOne = "O";
-  const playerTwo = "X";
+  const playerOne = ["O", playerOneInput.value];
+  const playerTwo = ["X" ,  playerTwoInput.value];
   const randomPlayer = Math.random() < 0.5 ? playerOne : playerTwo;
   let currentPlayer = randomPlayer;
   let isGameOver = false;
@@ -15,14 +17,14 @@ function Game() {
   const setPlayer = function togglePlayer() {
     currentPlayer =
       currentPlayer === playerOne ? playerTwo : playerOne;
-    gameInfoDisplay.textContent = `${currentPlayer} is next to go`;
+    gameInfoDisplay.textContent = `${currentPlayer[1]}(${currentPlayer[0]}) is next to go`;
   };
   const getCurrentPlayer = function getCurrentPlayer() {
     return currentPlayer;
   };
   const setWinner = function setWinner(player) {
     isGameOver = true;
-    winner = player;
+    winner = player === "O" ? playerOne[1] : playerTwo[1];
     gameInfoDisplay.textContent = `Game Over! ${winner} has won the game!`;
   };
 
@@ -59,7 +61,7 @@ function handleClick(event) {
   const el = event.target;
   const index = el.classList.value.slice(-1);
   if (el.textContent == "") {
-    gridArray[index] = game.getCurrentPlayer();
+    gridArray[index] = game.getCurrentPlayer()[0];
     game.setPlayer();
   }
   drawBoard();
@@ -96,6 +98,6 @@ function checkWinner() {
 }
 
 function handleClickStart() {
-
+ 
   resetGame();
 }
