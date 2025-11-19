@@ -72,8 +72,23 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
+.container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-info {
+  grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .board {
-  border: 1px solid lightblue;
+  grid-row: 2 / 3;
   width: 500px;
   height: 500px;
   display: grid;
