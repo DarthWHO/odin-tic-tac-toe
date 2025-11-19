@@ -82,7 +82,7 @@ html {
 
 .game-info {
   grid-row: 1 / 2;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
 }

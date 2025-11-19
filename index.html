@@ -16,9 +16,23 @@
   </head>
   <body>
     <div class="container">
-      <div class="game-info">Human player is next</div>
-      <div class="board">
+      <div class="game-info">
+        <input
+          type="text"
+          name="playerOne"
+          id="playerOne"
+          placeholder="Player One Name"
+        />
+        <input
+          type="text"
+          name="playerTwo"
+          id="playerTwo"
+          placeholder="Player Two Name"
+        />
+        <button id="startBtn">Start Game</button>
+        <div class="info"></div>
       </div>
+      <div class="board"></div>
     </div>
 
     <script src="./scripts/script.js" async defer></script>

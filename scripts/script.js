@@ -1,17 +1,20 @@
 const board = document.querySelector(".board");
-const gameInfoDisplay = document.querySelector(".game-info");
+const gameInfoDisplay = document.querySelector(".info");
+const startButton = document.getElementById("startBtn");
 const gridArray = ["", "", "", "", "", "", "", "", ""];
 
+startButton.addEventListener("click", handleClickStart);
+
 function Game() {
-  const computerPlayer = "O";
-  const humanPlayer = "X";
-  const randomPlayer = Math.random() < 0.5 ? humanPlayer : computerPlayer;
+  const playerOne = "O";
+  const playerTwo = "X";
+  const randomPlayer = Math.random() < 0.5 ? playerOne : playerTwo;
   let currentPlayer = randomPlayer;
   let isGameOver = false;
   let winner = null;
   const setPlayer = function togglePlayer() {
     currentPlayer =
-      currentPlayer === humanPlayer ? computerPlayer : humanPlayer;
+      currentPlayer === playerOne ? playerTwo : playerOne;
     gameInfoDisplay.textContent = `${currentPlayer} is next to go`;
   };
   const getCurrentPlayer = function getCurrentPlayer() {
@@ -92,4 +95,7 @@ function checkWinner() {
   }
 }
 
-resetGame();
+function handleClickStart() {
+
+  resetGame();
+}
